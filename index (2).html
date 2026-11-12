@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#091320">
+  <title>Así queda tu tablero · Prioridades</title>
+  <style>
+    :root{--bg:#091320;--panel:#142337;--col:#243447;--line:#3c5167;--yellow:#f2b51b;--red:#92282b;--green:#176e59;--white:#fff;--muted:#c7d3df}
+    *{box-sizing:border-box}
+    body{margin:0;background:var(--bg);color:var(--white);font-family:Arial,Helvetica,sans-serif;line-height:1.45}
+    .wrap{max-width:1180px;margin:0 auto;padding:clamp(16px,3vw,30px)}
+    .heading{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:18px}
+    .eyebrow{font-size:12px;letter-spacing:.11em;font-weight:800;color:var(--yellow);margin:0 0 4px}
+    h1{font-size:clamp(22px,3vw,32px);line-height:1.2;margin:0;font-weight:800}
+    .tag{font-size:13px;color:#e5edf4;border:1px solid #607084;border-radius:30px;padding:6px 12px;white-space:nowrap}
+    .board{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:14px}
+    .column{min-width:0;background:var(--col);border:1px solid var(--line);border-radius:13px;padding:12px;min-height:300px}
+    .column-head{padding:11px 10px;border-radius:7px;font-size:14px;text-align:center;font-weight:800;letter-spacing:.03em;color:white;margin-bottom:14px}
+    .todo .column-head{background:var(--red)}.doing .column-head{background:#a57813}.done .column-head{background:var(--green)}
+    .task{background:#f7f9fc;color:#152436;border-radius:9px;padding:13px 14px;margin:0 0 10px;box-shadow:0 3px 9px #0002;border-left:4px solid transparent;font-size:15px;font-weight:600}
+    .task.urgent{border-left-color:var(--red);background:#fff9f6}
+    .task.urgent .attention{display:flex;align-items:center;gap:6px;color:#92282b;font-size:11px;font-weight:800;letter-spacing:.045em;margin-bottom:6px;text-transform:uppercase}
+    .dot{display:inline-block;width:8px;height:8px;background:#92282b;border-radius:50%}
+    .deadline{display:inline-block;margin-top:8px;background:#f9e6df;color:#84262a;padding:3px 8px;border-radius:5px;font-size:12px;font-weight:700}
+    .task.active{border-left-color:var(--yellow)}
+    .empty{min-height:150px;display:flex;align-items:center;justify-content:center;text-align:center;color:#b9c8d7;font-size:14px;border:1px dashed #65788b;border-radius:8px;padding:15px}
+    .footer{margin-top:18px;padding:16px 18px;border-radius:9px;background:#101e30;border-left:5px solid var(--yellow);font-size:15px;color:#f2f6fa}
+    .footer strong{color:var(--yellow)}
+    .context{color:var(--muted);font-size:14px;margin:0 0 20px}
+    @media(max-width:650px){.board{grid-template-columns:1fr}.column{min-height:auto}.empty{min-height:75px}.heading{align-items:flex-start}.task{font-size:14px}}
+    @media(prefers-reduced-motion:no-preference){.column{animation:appear .45s ease both}.doing{animation-delay:.1s}.done{animation-delay:.2s}@keyframes appear{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}}
+  </style>
+</head>
+<body>
+<main class="wrap">
+  <header class="heading">
+    <div><p class="eyebrow">TU JORNADA · ESTADO DEL TABLERO</p><h1>Así queda tu tablero</h1></div>
+    <span class="tag">Después de revisar prioridades</span>
+  </header>
+  <p class="context">Has comenzado el informe. La consulta urgente sigue pendiente, pero ahora sabes que necesita respuesta antes de las 10:00.</p>
+  <section class="board" aria-label="Tablero visual de tareas">
+    <section class="column todo" aria-labelledby="todo-title">
+      <div class="column-head" id="todo-title">POR HACER · 4</div>
+      <article class="task urgent"><div class="attention"><span class="dot"></span>Próxima atención</div>Responder consulta urgente <div class="deadline">Responder antes de las 10:00</div></article>
+      <article class="task">Revisar documentación</article>
+      <article class="task">Actualizar presentación</article>
+      <article class="task">Organizar archivos</article>
+    </section>
+    <section class="column doing" aria-labelledby="doing-title">
+      <div class="column-head" id="doing-title">EN CURSO · 1</div>
+      <article class="task active">Preparar informe para mañana</article>
+    </section>
+    <section class="column done" aria-labelledby="done-title">
+      <div class="column-head" id="done-title">TERMINADO · 0</div>
+      <div class="empty">Todavía no hay tareas completadas</div>
+    </section>
+  </section>
+  <aside class="footer"><strong>Recuerda:</strong> las prioridades pueden cambiar. Revisa el tablero cuando aparezcan nuevas necesidades, cambien los plazos o surjan imprevistos.</aside>
+</main>
+</body>
+</html>
